@@ -1,0 +1,84 @@
+---
+const links = [
+  { href: '#features',      label: 'Features' },
+  { href: '#communities',   label: 'Communities' },
+  { href: '#compare',       label: 'Compare' },
+  { href: '#testimonials',  label: 'Reviews' },
+]
+---
+<nav id="nav">
+  <a class="logo" href="/">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M3 8L7 4L11 8L7 12L3 8Z" fill="white" opacity=".9"/>
+        <path d="M7 4L11 8L13 6L9 2L7 4Z" fill="white" opacity=".5"/>
+      </svg>
+    </div>
+    Krenla
+  </a>
+
+  <ul class="nav-links" role="list">
+    {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+  </ul>
+
+  <div class="nav-actions">
+    <a class="btn-ghost" href="#">Sign in</a>
+    <a class="btn-fill"  href="#">Get started</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 52px; height: 64px;
+    background: rgba(8,8,16,.75);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    transition: background .3s, border-color .3s;
+  }
+  nav.scrolled { background: rgba(8,8,16,.95); border-color: var(--border2); }
+
+  .logo {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 1.15rem; font-weight: 800; letter-spacing: -.035em;
+    color: var(--text); text-decoration: none;
+  }
+  .logo-mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: linear-gradient(140deg, var(--purple), var(--blue));
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .logo-mark svg { width: 16px; height: 16px; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 30px; list-style: none;
+  }
+  .nav-links a {
+    color: var(--text2); text-decoration: none;
+    font-size: .875rem; font-weight: 500; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+  .btn-ghost {
+    background: none; border: 1px solid var(--border2); color: var(--text2);
+    padding: 8px 18px; border-radius: 8px; font-size: .84rem; font-weight: 500;
+    cursor: pointer; font-family: inherit; text-decoration: none; transition: all .2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.22); color: var(--text); }
+
+  .btn-fill {
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    border: none; color: #fff; padding: 8px 18px; border-radius: 8px;
+    font-size: .84rem; font-weight: 600; cursor: pointer;
+    font-family: inherit; text-decoration: none; transition: opacity .2s, transform .2s;
+  }
+  .btn-fill:hover { opacity: .88; transform: translateY(-1px); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+  }
+</style>

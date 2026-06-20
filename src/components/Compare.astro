@@ -1,0 +1,110 @@
+---
+const platforms = [
+  {
+    name: 'Discord', tag: 'Great for voice and gaming',
+    bg: 'rgba(88,101,242,.14)',
+    icon: '<path d="M9 2C5.1 2 2 5.1 2 9s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7Z" stroke="rgba(130,140,255,.8)" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="rgba(130,140,255,.8)" stroke-width="1.3" stroke-linecap="round"/>',
+    pros: ['Strong voice channels','Solid community tools'],
+    cons: ['No content discovery','Weak threaded discussion'],
+  },
+  {
+    name: 'Telegram', tag: 'Fast messaging at scale',
+    bg: 'rgba(38,169,224,.12)',
+    icon: '<path d="M3 9l6-6 6 6v6H3V9Z" stroke="rgba(100,190,240,.8)" stroke-width="1.4" stroke-linejoin="round"/>',
+    pros: ['Very fast messaging','Large group capacity'],
+    cons: ['Weak community structure','No voice or video'],
+  },
+  {
+    name: 'Reddit', tag: 'Rich discussions, massive reach',
+    bg: 'rgba(255,69,0,.1)',
+    icon: '<circle cx="9" cy="9" r="6" stroke="rgba(255,120,80,.8)" stroke-width="1.4"/><path d="M6 9h6" stroke="rgba(255,120,80,.8)" stroke-width="1.3" stroke-linecap="round"/>',
+    pros: ['Deep threaded discussions','Strong content discovery'],
+    cons: ['No real-time chat','No voice or video'],
+  },
+]
+---
+<section id="compare" class="py compare-section">
+  <div class="container">
+    <div class="tc reveal">
+      <div class="sec-label">Why Krenla</div>
+      <h2 class="sec-title">Built for what others left out</h2>
+      <p class="sec-sub">Other platforms do one thing well. Krenla brings it all together — without the tradeoffs.</p>
+    </div>
+
+    <div class="comp-grid">
+      {platforms.map(p => (
+        <div class="comp-card reveal">
+          <div class="comp-mark" style={`background:${p.bg}`}>
+            <svg viewBox="0 0 18 18" fill="none" set:html={p.icon} />
+          </div>
+          <div class="comp-name">{p.name}</div>
+          <div class="comp-tag">{p.tag}</div>
+          <div class="comp-list">
+            {p.pros.map(t => <div class="comp-row"><span class="ci-yes">✓</span><span class="ct-ok">{t}</span></div>)}
+            {p.cons.map(t => <div class="comp-row"><span class="ci-no">✗</span><span class="ct-no">{t}</span></div>)}
+          </div>
+        </div>
+      ))}
+
+      <!-- Krenla featured card -->
+      <div class="comp-card star reveal">
+        <div class="comp-ribbon">Our platform</div>
+        <div class="comp-mark krenla-mark">
+          <svg viewBox="0 0 18 18" fill="none">
+            <path d="M9 2l1.8 3.6L15 6.5l-3 2.9.7 4.1L9 11.4l-3.7 2.1.7-4.1-3-2.9 4.2-.9L9 2Z" fill="rgba(157,130,255,.8)"/>
+          </svg>
+        </div>
+        <div class="comp-name">Krenla</div>
+        <div class="comp-tag">Communities + Messaging + Discovery</div>
+        <div class="comp-list">
+          {['Real-time messaging','Rich community spaces','Threaded discussions','Smart discovery feed'].map(t => (
+            <div class="comp-row"><span class="ci-yes">✓</span><span class="ct-ok">{t}</span></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.compare-section { background: var(--bg2); }
+.comp-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 14px; margin-top: 60px;
+}
+.comp-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 30px 22px; position: relative; transition: all .22s;
+}
+.comp-card.star {
+  background: linear-gradient(150deg, rgba(124,92,252,.1), rgba(75,139,245,.05));
+  border-color: rgba(124,92,252,.35);
+  box-shadow: 0 0 50px rgba(124,92,252,.08), 0 0 0 1px rgba(124,92,252,.08);
+}
+.comp-ribbon {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: #fff; font-size: .67rem; font-weight: 700;
+  padding: 3px 12px; border-radius: 0 0 7px 7px; letter-spacing: .05em; white-space: nowrap;
+}
+.comp-mark {
+  width: 36px; height: 36px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.krenla-mark {
+  background: linear-gradient(135deg, rgba(124,92,252,.22), rgba(75,139,245,.14));
+  margin-top: 16px;
+}
+.comp-mark svg { width: 18px; height: 18px; }
+.comp-name { font-size: .95rem; font-weight: 700; margin-bottom: 3px; }
+.comp-tag  { font-size: .74rem; color: var(--text3); margin-bottom: 18px; line-height: 1.4; }
+.comp-list { display: flex; flex-direction: column; gap: 9px; }
+.comp-row  { display: flex; align-items: flex-start; gap: 7px; font-size: .78rem; line-height: 1.4; }
+.ci-yes { color: #22C55E; font-size: .8rem; flex-shrink: 0; margin-top: 1px; }
+.ci-no  { color: #EF4444; font-size: .8rem; flex-shrink: 0; margin-top: 1px; }
+.ct-ok  { color: var(--text2); }
+.ct-no  { color: var(--text3); text-decoration: line-through; }
+
+@media (max-width: 900px) { .comp-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .comp-grid { grid-template-columns: 1fr; } }
+</style>

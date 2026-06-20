@@ -1,0 +1,86 @@
+---
+const testimonials = [
+  {
+    text:   '"Krenla replaced four different tools for our team. The combination of chat, threads, and voice in one place is exactly what we were missing for years."',
+    name:   'Jamie L.',
+    role:   'Community Manager, BuildCo',
+    initials: 'JL',
+    grad:   'linear-gradient(135deg,#7C5CFC,#4B8BF5)',
+  },
+  {
+    text:   '"I\'ve tried Discord, Slack, and Reddit for my design community. Nothing comes close. The discovery feed alone brought us 8,000 new members last month."',
+    name:   'Maya R.',
+    role:   'Founder, Design Collective',
+    initials: 'MR',
+    grad:   'linear-gradient(135deg,#2BBFAA,#4B8BF5)',
+  },
+  {
+    text:   '"We run a 50K gaming community and Krenla handles everything — voice during tournaments, threads for strategy, announcements. It just works every time."',
+    name:   'Kai P.',
+    role:   'Admin, Gaming Nexus',
+    initials: 'KP',
+    grad:   'linear-gradient(135deg,#F59E0B,#EF4444)',
+  },
+]
+
+const Star = `<svg viewBox="0 0 12 12" fill="#F59E0B" width="13" height="13"><path d="M6 1l1.4 2.8L10.4 4.3l-2.2 2.2.5 3.1L6 8.1 3.3 9.6l.5-3.1L1.6 4.3l3-.5L6 1Z"/></svg>`
+---
+<section id="testimonials" class="py">
+  <div class="container">
+    <div class="tc reveal">
+      <div class="sec-label">Testimonials</div>
+      <h2 class="sec-title">What people are saying</h2>
+      <p class="sec-sub">From community managers to founders — here's why they made the switch.</p>
+    </div>
+
+    <div class="test-grid">
+      {testimonials.map(t => (
+        <article class="test-card reveal">
+          <div class="stars" aria-label="5 out of 5 stars">
+            <Fragment set:html={Star.repeat(5)} />
+          </div>
+          <blockquote class="test-text">{t.text}</blockquote>
+          <div class="test-author">
+            <div class="test-av" style={`background:${t.grad}`}>{t.initials}</div>
+            <div>
+              <div class="test-name">{t.name}</div>
+              <div class="test-role">{t.role}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.test-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 14px; margin-top: 60px;
+}
+.test-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 26px;
+  transition: all .22s; display: flex; flex-direction: column; gap: 14px;
+}
+.test-card:hover {
+  border-color: rgba(124,92,252,.2); transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(0,0,0,.28);
+}
+.stars { display: flex; gap: 3px; }
+.test-text {
+  font-size: .855rem; color: var(--text2); line-height: 1.7;
+  flex: 1; font-style: italic;
+}
+.test-author { display: flex; align-items: center; gap: 10px; }
+.test-av {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .78rem; font-weight: 700; flex-shrink: 0;
+}
+.test-name { font-size: .82rem; font-weight: 600; }
+.test-role { font-size: .7rem; color: var(--text3); }
+
+@media (max-width: 900px) { .test-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .test-grid { grid-template-columns: 1fr; } }
+</style>

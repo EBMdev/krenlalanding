@@ -1,0 +1,44 @@
+---
+const stats = [
+  { n: '500K+',  l: 'Active users' },
+  { n: '25K+',   l: 'Communities' },
+  { n: '10M+',   l: 'Messages sent' },
+  { n: '99.99%', l: 'Uptime' },
+]
+---
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-row">
+      {stats.map(s => (
+        <div class="stat reveal">
+          <div class="stat-n">{s.n}</div>
+          <div class="stat-l">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+.stats-bar {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,.012); padding: 44px 0;
+}
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat {
+  text-align: center; padding: 16px 20px;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-size: 2.4rem; font-weight: 900; letter-spacing: -.04em;
+  background: linear-gradient(130deg, var(--purple2), var(--blue));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.stat-l { font-size: .82rem; color: var(--text2); font-weight: 500; margin-top: 3px; }
+
+@media (max-width: 700px) {
+  .stats-row { grid-template-columns: repeat(2,1fr); }
+  .stat:nth-child(2) { border-right: none; }
+}
+</style>

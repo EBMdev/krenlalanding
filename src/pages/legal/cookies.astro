@@ -1,0 +1,35 @@
+---
+import Page from '../../layouts/Page.astro'
+---
+<Page
+  title="Cookie Policy"
+  label="Legal"
+  hero="Cookie Policy"
+  sub="We use one cookie. Here's what it does."
+  description="Krenla's cookie policy — minimal, no tracking, no third parties."
+>
+  <div class="prose">
+    <p class="updated">Last updated: June 1, 2025</p>
+
+    <div class="note">
+      Krenla uses a single session cookie for authentication. We don't use tracking cookies, advertising cookies, or third-party cookies of any kind.
+    </div>
+
+    <h2>The cookie we use</h2>
+    <p><strong>krenla_session</strong> — This cookie keeps you logged in between page visits. It contains an encrypted session token, nothing else. It expires when you log out or after 30 days of inactivity. It is an HTTP-only, SameSite=Strict cookie — it cannot be accessed by JavaScript and is not sent to third-party domains.</p>
+
+    <h2>What we don't use</h2>
+    <ul>
+      <li>Analytics cookies (no Google Analytics, no Mixpanel, no Amplitude)</li>
+      <li>Advertising cookies</li>
+      <li>Social media tracking pixels</li>
+      <li>Third-party cookies of any kind</li>
+    </ul>
+
+    <h2>Local storage</h2>
+    <p>We use browser local storage to save your UI preferences (like theme settings and sidebar state). This data never leaves your device.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about cookies: <a href="mailto:privacy@krenla.com">privacy@krenla.com</a></p>
+  </div>
+</Page>

@@ -1,0 +1,81 @@
+---
+import Page from '../../layouts/Page.astro'
+
+const posts = [
+  {
+    date: 'June 12, 2025',
+    tag: 'Product',
+    title: 'Introducing stage mode: host events for thousands',
+    excerpt: 'Stage mode lets community owners run AMAs, panels, and live events with up to 50 speakers and unlimited listeners — all inside Krenla.',
+  },
+  {
+    date: 'May 28, 2025',
+    tag: 'Community',
+    title: 'How the Design Lab community grew to 40,000 members in six months',
+    excerpt: 'A conversation with Sara, the founder of Design Lab, about what worked, what didn\'t, and what made Krenla the right home for her community.',
+  },
+  {
+    date: 'May 14, 2025',
+    tag: 'Engineering',
+    title: 'How we built real-time sync across 500,000 concurrent users',
+    excerpt: 'A deep dive into the architecture decisions behind Krenla\'s messaging infrastructure — and what we had to unlearn from traditional approaches.',
+  },
+  {
+    date: 'April 30, 2025',
+    tag: 'Product',
+    title: 'Discovery v2: a feed that respects your time',
+    excerpt: 'We rebuilt the discovery feed from scratch. Here\'s what changed, what we removed, and why we made the choices we did.',
+  },
+  {
+    date: 'April 10, 2025',
+    tag: 'Company',
+    title: 'Krenla raises $12M to build the future of online communities',
+    excerpt: 'We\'re thrilled to announce our Series A, led by investors who share our belief in community-first, ad-free platforms.',
+  },
+]
+---
+<Page
+  title="Blog"
+  label="Company"
+  hero="Stories from Krenla"
+  sub="Product updates, community spotlights, and behind-the-scenes engineering."
+  description="The Krenla blog — product news, community stories, and engineering deep-dives."
+>
+  <div class="post-list">
+    {posts.map(p => (
+      <a class="post-card" href="#">
+        <div class="post-meta">
+          <span class="post-tag">{p.tag}</span>
+          <span class="post-date">{p.date}</span>
+        </div>
+        <h2 class="post-title">{p.title}</h2>
+        <p class="post-excerpt">{p.excerpt}</p>
+        <span class="post-read">Read more →</span>
+      </a>
+    ))}
+  </div>
+</Page>
+
+<style>
+.post-list { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 2px; }
+.post-card {
+  display: block; padding: 32px 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; transition: padding-left .2s;
+}
+.post-card:hover { padding-left: 8px; }
+.post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.post-tag {
+  font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--purple2); background: rgba(124,92,252,.1);
+  border: 1px solid rgba(124,92,252,.2); padding: 2px 9px; border-radius: 100px;
+}
+.post-date { font-size: .78rem; color: var(--text3); }
+.post-title {
+  font-size: 1.2rem; font-weight: 800; letter-spacing: -.025em;
+  line-height: 1.25; margin-bottom: 10px; color: var(--text);
+  transition: color .2s;
+}
+.post-card:hover .post-title { color: var(--purple2); }
+.post-excerpt { font-size: .9rem; color: var(--text2); line-height: 1.7; margin-bottom: 14px; }
+.post-read { font-size: .82rem; color: var(--purple2); font-weight: 500; }
+</style>

@@ -1,0 +1,72 @@
+---
+import Page from '../../layouts/Page.astro'
+---
+<Page
+  title="Contact"
+  label="Company"
+  hero="Get in touch"
+  sub="We're a small team. Real people read every message."
+  description="Contact Krenla — support, press, partnerships, and general enquiries."
+>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:support@krenla.com">
+      <div class="card-ic">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M2 5h16v10H2V5Z" stroke="rgba(157,130,255,.9)" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 5l8 7 8-7" stroke="rgba(157,130,255,.9)" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Support</h3>
+      <p>Having trouble with your account, a community, or a feature? We'll get back to you within 24 hours.</p>
+      <span class="contact-link">support@krenla.com</span>
+    </a>
+    <a class="contact-card" href="mailto:press@krenla.com">
+      <div class="card-ic">
+        <svg viewBox="0 0 20 20" fill="none"><rect x="3" y="4" width="14" height="13" rx="2" stroke="rgba(157,130,255,.9)" stroke-width="1.5"/><path d="M7 8h6M7 11h4" stroke="rgba(157,130,255,.9)" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Press</h3>
+      <p>Journalists and media — for interviews, assets, and background on Krenla.</p>
+      <span class="contact-link">press@krenla.com</span>
+    </a>
+    <a class="contact-card" href="mailto:partners@krenla.com">
+      <div class="card-ic">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M7 10l2.5 2.5L14 7" stroke="rgba(157,130,255,.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="7" stroke="rgba(157,130,255,.9)" stroke-width="1.5"/></svg>
+      </div>
+      <h3>Partnerships</h3>
+      <p>Integration requests, business partnerships, and API access enquiries.</p>
+      <span class="contact-link">partners@krenla.com</span>
+    </a>
+    <a class="contact-card" href="mailto:jobs@krenla.com">
+      <div class="card-ic">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M10 3a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4Z" stroke="rgba(157,130,255,.9)" stroke-width="1.5"/><path d="M5 17c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="rgba(157,130,255,.9)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Careers</h3>
+      <p>Interested in working at Krenla? See open roles or introduce yourself.</p>
+      <span class="contact-link">jobs@krenla.com</span>
+    </a>
+  </div>
+
+  <div class="prose">
+    <h2>Response times</h2>
+    <p>Support: within 24 hours on weekdays, 48 hours on weekends. Press: within one business day. All other enquiries: within 3 business days.</p>
+
+    <h2>Community support</h2>
+    <p>For help using Krenla — account issues, reporting content, feature questions — you'll get the fastest response through the in-app help center, which connects you directly with our support team.</p>
+  </div>
+</Page>
+
+<style>
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  max-width: 740px; margin: 0 auto 64px;
+}
+.contact-card {
+  display: block; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 28px; text-decoration: none; transition: all .25s;
+}
+.contact-card:hover {
+  border-color: rgba(124,92,252,.25); transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,.3);
+}
+.contact-card h3 { font-size: .97rem; font-weight: 700; margin: 14px 0 8px; color: var(--text); }
+.contact-card p  { font-size: .855rem; color: var(--text2); line-height: 1.65; margin-bottom: 14px; }
+.contact-link    { font-size: .82rem; color: var(--purple2); font-weight: 500; }
+@media(max-width:600px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

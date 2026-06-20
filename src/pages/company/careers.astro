@@ -1,0 +1,73 @@
+---
+import Page from '../../layouts/Page.astro'
+
+const roles = [
+  { title: 'Senior Frontend Engineer', team: 'Engineering', location: 'Remote (Europe)' },
+  { title: 'iOS Engineer', team: 'Engineering', location: 'Remote (Europe)' },
+  { title: 'Product Designer', team: 'Design', location: 'Barcelona or Remote' },
+  { title: 'Community Lead', team: 'Growth', location: 'Remote' },
+  { title: 'Trust & Safety Analyst', team: 'Operations', location: 'Remote' },
+]
+---
+<Page
+  title="Careers"
+  label="Company"
+  hero="Help us build a better internet"
+  sub="We're a small team with a big surface area. Every person here has real ownership over what we build."
+  description="Join the Krenla team — open roles in engineering, design, product, and operations."
+>
+  <div class="prose">
+    <h2>How we work</h2>
+    <p>We're async-first and remote-friendly, with an optional office in Barcelona. We ship fast, talk directly, and don't have a lot of meetings. Everyone writes — whether you're an engineer or a designer, you're expected to document your thinking.</p>
+
+    <h2>What we offer</h2>
+    <ul>
+      <li>Competitive salary + meaningful equity</li>
+      <li>Fully remote with flexible hours</li>
+      <li>Annual in-person team retreats</li>
+      <li>Home office budget (€1,500 on joining)</li>
+      <li>Learning budget (€1,000/year)</li>
+      <li>33 days holiday</li>
+      <li>Health insurance (EU employees)</li>
+    </ul>
+  </div>
+
+  <div class="role-list">
+    <h2 class="role-section-title">Open roles</h2>
+    {roles.map(r => (
+      <a class="role-card" href="#">
+        <div>
+          <div class="role-title">{r.title}</div>
+          <div class="role-meta">{r.team} · {r.location}</div>
+        </div>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    ))}
+  </div>
+
+  <div class="prose">
+    <p>Don't see the right role? We're always interested in hearing from strong engineers, designers, and community builders. Send a note to <a href="mailto:jobs@krenla.com">jobs@krenla.com</a>.</p>
+  </div>
+</Page>
+
+<style>
+.role-list { max-width: 740px; margin: 40px auto 64px; }
+.role-section-title {
+  font-size: 1.25rem; font-weight: 800; letter-spacing: -.025em;
+  margin-bottom: 16px; color: var(--text);
+}
+.role-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); text-decoration: none; margin-bottom: 8px;
+  transition: all .2s; color: var(--text);
+}
+.role-card:hover {
+  border-color: rgba(124,92,252,.25); background: var(--surface2);
+  transform: translateX(4px);
+}
+.role-card svg { opacity: .4; flex-shrink: 0; }
+.role-card:hover svg { opacity: 1; color: var(--purple2); }
+.role-title { font-size: .95rem; font-weight: 600; margin-bottom: 4px; }
+.role-meta  { font-size: .78rem; color: var(--text3); }
+</style>

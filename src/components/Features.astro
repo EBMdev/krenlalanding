@@ -1,0 +1,91 @@
+---
+const features = [
+  {
+    title: 'Real-time messaging',
+    desc:  'Instant delivery with read receipts, typing indicators, and threaded replies. Conversations that flow naturally.',
+    icon:  '<path d="M4 5h12M4 10h8M4 15h10" stroke="rgba(157,130,255,.9)" stroke-width="1.6" stroke-linecap="round"/>'
+  },
+  {
+    title: 'Community spaces',
+    desc:  'Organized communities with channels, roles, and custom permissions. Built for groups of ten or ten thousand.',
+    icon:  '<circle cx="10" cy="10" r="7" stroke="rgba(157,130,255,.9)" stroke-width="1.6"/><path d="M10 6v4l3 2" stroke="rgba(157,130,255,.9)" stroke-width="1.5" stroke-linecap="round"/>'
+  },
+  {
+    title: 'Discussion threads',
+    desc:  'Deep conversations that persist and grow. Upvotes, nested replies, and smart sorting keep the signal clear.',
+    icon:  '<path d="M3 4h14v9H10l-5 3V13H3V4Z" stroke="rgba(157,130,255,.9)" stroke-width="1.6" stroke-linejoin="round"/>'
+  },
+  {
+    title: 'Voice & video rooms',
+    desc:  'Crystal-clear audio with noise cancellation, screen sharing, and stage mode. Just talk — no setup required.',
+    icon:  '<path d="M10 3a4 4 0 0 1 4 4v3a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4Z" stroke="rgba(157,130,255,.9)" stroke-width="1.6"/><path d="M5 10a5 5 0 0 0 10 0M10 15v2" stroke="rgba(157,130,255,.9)" stroke-width="1.5" stroke-linecap="round"/>'
+  },
+  {
+    title: 'Smart discovery',
+    desc:  'A feed that surfaces communities and conversations aligned with your interests — not driven by engagement metrics.',
+    icon:  '<path d="M10 4l1.8 3.6L16 8.5l-3 2.9.7 4.1L10 13.4l-3.7 2.1.7-4.1-3-2.9 4.2-.9L10 4Z" stroke="rgba(157,130,255,.9)" stroke-width="1.5" stroke-linejoin="round"/>'
+  },
+  {
+    title: 'Privacy & security',
+    desc:  'End-to-end encryption, granular privacy controls, and no third-party data sharing. Your conversations stay yours.',
+    icon:  '<rect x="4" y="3" width="12" height="15" rx="2" stroke="rgba(157,130,255,.9)" stroke-width="1.6"/><path d="M7 8h6M7 11h4" stroke="rgba(157,130,255,.9)" stroke-width="1.4" stroke-linecap="round"/>'
+  },
+]
+---
+<section id="features" class="py">
+  <div class="container">
+    <div class="tc reveal">
+      <div class="sec-label">Features</div>
+      <h2 class="sec-title">Everything your community needs</h2>
+      <p class="sec-sub">Six pillars that make Krenla the only platform you'll ever need for your people.</p>
+    </div>
+
+    <div class="feat-grid reveal">
+      {features.map(f => (
+        <div class="feat-card">
+          <div class="feat-ic">
+            <svg viewBox="0 0 20 20" fill="none" set:html={f.icon} />
+          </div>
+          <h3 class="feat-title">{f.title}</h3>
+          <p class="feat-desc">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.feat-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--border); margin-top: 60px;
+}
+.feat-card {
+  background: var(--bg2); padding: 36px 30px;
+  position: relative; overflow: hidden; transition: background .25s;
+}
+.feat-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(140deg, rgba(124,92,252,.07), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.feat-card:hover { background: var(--bg3); }
+.feat-card:hover::after { opacity: 1; }
+.feat-ic {
+  width: 44px; height: 44px; border-radius: 11px;
+  background: rgba(124,92,252,.1); border: 1px solid rgba(124,92,252,.18);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; transition: all .25s;
+}
+.feat-ic svg { width: 20px; height: 20px; }
+.feat-card:hover .feat-ic {
+  background: rgba(124,92,252,.18);
+  box-shadow: 0 0 16px rgba(124,92,252,.2);
+}
+.feat-title { font-size: .97rem; font-weight: 700; margin-bottom: 9px; letter-spacing: -.01em; }
+.feat-desc  { font-size: .855rem; color: var(--text2); line-height: 1.65; }
+
+@media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .feat-grid { grid-template-columns: 1fr; } }
+</style>

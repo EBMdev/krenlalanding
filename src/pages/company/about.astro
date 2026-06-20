@@ -1,0 +1,52 @@
+---
+import Page from '../../layouts/Page.astro'
+
+const team = [
+  { initials: 'AV', name: 'Ana Vidal', role: 'Co-founder & CEO', grad: 'linear-gradient(135deg,#7C5CFC,#4B8BF5)' },
+  { initials: 'JM', name: 'Joel Marsh', role: 'Co-founder & CTO', grad: 'linear-gradient(135deg,#2BBFAA,#4B8BF5)' },
+  { initials: 'SR', name: 'Sara Roca', role: 'Head of Design', grad: 'linear-gradient(135deg,#F59E0B,#EF4444)' },
+  { initials: 'LK', name: 'Lena Kim', role: 'Head of Product', grad: 'linear-gradient(135deg,#4B8BF5,#2BBFAA)' },
+  { initials: 'MC', name: 'Marco Conte', role: 'Engineering Lead', grad: 'linear-gradient(135deg,#EF4444,#F59E0B)' },
+  { initials: 'PB', name: 'Priya Bhat', role: 'Trust & Safety', grad: 'linear-gradient(135deg,#7C5CFC,#2BBFAA)' },
+]
+---
+<Page
+  title="About"
+  label="Company"
+  hero="We're building the platform we always wanted"
+  sub="Krenla started as a question: why does every community end up split across three different apps?"
+  description="Learn about Krenla — our story, our mission, and the team building the next generation of community platforms."
+>
+  <div class="prose">
+    <h2>The story</h2>
+    <p>In 2022, three friends were running an online community for independent designers. They used Discord for chat, Reddit for longer discussions, and Telegram for announcements. It worked, but barely. New members were confused. Conversations got split. Things fell through the cracks.</p>
+    <p>So they started building something. Not a grand vision — just the tool their community actually needed. A year later, a hundred communities were using it. By 2024, half a million people called it home.</p>
+    <p>That's Krenla. Built by people who run communities, for people who run communities.</p>
+
+    <h2>What we believe</h2>
+    <ul>
+      <li><strong>Online communities are real communities.</strong> The people in them are real, the relationships are real, and the stakes are real. We take that seriously.</li>
+      <li><strong>The platform should get out of the way.</strong> Good tools disappear. You shouldn't be thinking about Krenla — you should be thinking about your community.</li>
+      <li><strong>No ads, ever.</strong> Advertising creates the wrong incentives. We're funded by subscriptions from people who find the product worth paying for.</li>
+      <li><strong>Moderation is a feature.</strong> Safe communities don't happen by accident. We invest heavily in the tools that keep communities healthy.</li>
+    </ul>
+
+    <h2>The team</h2>
+    <p>We're a small team of engineers, designers, and community builders based across Barcelona, Berlin, and remote.</p>
+  </div>
+
+  <div class="team-grid">
+    {team.map(m => (
+      <div class="member">
+        <div class="member-av" style={`background:${m.grad}`}>{m.initials}</div>
+        <div class="member-name">{m.name}</div>
+        <div class="member-role">{m.role}</div>
+      </div>
+    ))}
+  </div>
+
+  <div class="prose">
+    <h2>Backed by</h2>
+    <p>Krenla has raised $12M from investors who share our belief that community infrastructure should be independent, privacy-first, and built for longevity — not a quick exit.</p>
+  </div>
+</Page>
